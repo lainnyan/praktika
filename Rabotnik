@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class Rabotnik
+{
+public:
+	void show_Rabotnik();
+	Rabotnik(const char*, int, double);
+private:
+	char name[64];
+	int Rabotnik_id;
+	double salary;
+};
+void Rabotnik::show_Rabotnik()
+{
+	cout << "Имя работника: " << name << endl;
+	cout << "Номер работника: " << Rabotnik_id << endl;
+	cout << "Оклад: " << salary;
+}
+
+Rabotnik::Rabotnik(const char* name1, int Rabotnik_id1, double salary1 = 10000)//в случае когда при вызове параметр пропущен его значение присваивается значению, который указан по умолчанию
+{
+	strcpy_s(name, name1);
+	Rabotnik_id = Rabotnik_id1;
+	salary = salary1;
+}//при использовании конструктора с параметарми по умолчанию один из парамтеров присваивается конкрентому значению, тогда при вызове конструктора этот праметр можно пропустить 
+ 
+int main()
+{
+	setlocale(0, "Rus");
+	Rabotnik worker("Ivanov Ivan", 10001);
+	worker.show_Rabotnik();
+
+	return 0;
+}
